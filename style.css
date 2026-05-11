@@ -1,0 +1,92 @@
+header{
+    background-color:#3577f1;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    text-shadow: 2px 2px 4px hsl(0, 0%, 29%);
+  
+}
+
+nav {
+    background-color:dimgrey;
+    text-align: center;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+nav a {
+    color: #e4e6e0;
+    margin: 15px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px hsl(0, 0%, 29%);
+}
+nav a:hover {
+    color: #d4af37;
+    font-weight: 900;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
+    background-color: lightgray;
+}
+
+section h2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+section {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    background-color: #f4efbe;
+}
+
+.container div {
+    text-align: center;
+    padding: 20px;
+    border: #3577f1 solid 3px;
+    margin: 2px;
+}
+
+.box {
+    background-color:#e4e6e0;
+    padding: 20px;
+    border-radius: 5%;
+}
+footer {
+    background-color: #3577f1;
+    text-align: center;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    height:90px;
+}
+
+.formbox {
+    background-color: rgb(240, 245, 249);
+    padding: 20px;
+    border-radius: 5%;
+    width: 300px;
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    gap: 3px;
+    box-shadow: 0 0 10px hsl(240, 3%, 14%);
+}
+
+.sub-element {
+    display: flex;
+    gap:20px;
+}
+ 
+button {
+    background-color: hsl(89, 91%, 52%);
+    padding: 10px;
+    border-radius: 10px;
+}
