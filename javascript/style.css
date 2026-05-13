@@ -45,21 +45,18 @@ section {
 
 .container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    background-color: #f4efbe;
 }
-
 
 .container div {
     text-align: center;
     padding: 20px;
     border: #3577f1 solid 3px;
     margin: 2px;
-    border-radius: 5px;;
 }
 
 .box {
-
+    background-color:#e4e6e0;
     padding: 20px;
     border-radius: 5%;
 }
@@ -89,13 +86,9 @@ footer {
 }
  
 button {
-    background-color: hwb(89 51% 3%);
+    background-color: hsl(89, 91%, 52%);
     padding: 10px;
     border-radius: 10px;
-}
-
-button:hover {
-    background-color: hwb(89 2% 13%);
 }
 
 table, th, td {
