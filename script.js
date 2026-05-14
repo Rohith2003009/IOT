@@ -1,4 +1,4 @@
-// Signup
+// Signup//
 let signupform = document.getElementById("signupform");
 
 if (signupform) {
@@ -60,7 +60,8 @@ if (loginform) {
         let user = JSON.parse(storedUser);
 
         if (email === user.email && password === user.password) {
-            alert("Login successful!");
+            alert("Login successful!!");
+            localStorage.setItem("loggedInUser", "true");
             window.location.href = "index.html";
         } else {
             alert("Invalid email or password");
@@ -69,14 +70,104 @@ if (loginform) {
 }
 
 
-// Welcome Message
-let heading = document.getElementById("heading");
+//javascript for changing the heading after login
+let heading = document.getElementById("welcomemessage");
 
-if (heading) {
-    let storedUser = localStorage.getItem("user");
-
-    if (storedUser) {
-        let user = JSON.parse(storedUser);
-        heading.textContent = "Welcome " + user.name + "!";
+if(heading){
+    //firstt get theuser details
+    let user = JSON.parse(localStorage.getItem("user"));
+    let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    
+    //if the user exists then change the welcome message
+    if(user && loggedInUser){
+        heading.innerHTML = "Welcome " + user.name + "!...";
     }
 }
+
+//protecting the Tasks.html form opeingi without login //
+let currentPage = window.location.pathname;
+if(currentPage.includes("task.html")){
+ let loginStatus = localStorage.getItem("loggedInUser");
+
+    if (!loginStatus) {
+        alert("Please log in to access this page.");
+        window.location.href = "login.html";
+    }
+}
+
+
+// Logout functionality
+let logoutbtn = document.getElementById("logoutbtn");
+if (logoutbtn) {
+    logoutbtn.addEventListener("click", function (e) {
+        localStorage.removeItem("loggedInUser");
+        alert("Are you sure you want to logout? Press Ok to logout.");
+        window.location.href = "index.html"; 
+    })
+
+}
+
+
+// To hide login and signup links after login
+let loginLink = document.getElementById("loginLink");
+let signupLink = document.getElementById("signupLink");
+let logoutLink = document.getElementById("logoutbtn");
+
+//checking if login is true or false//
+let loginStatus = localStorage.getItem("loggedInUser");
+
+if (loginStatus == "true") {
+    if (loginLink) {
+        loginLink.style.display = "none";
+    } 
+    if (signupLink) {
+        signupLink.style.display = "none";
+    } 
+} else {
+    if (loginLink) {
+    logoutLink.style.display = "none";
+   }
+}
+/*
+/* Dynamically adding tasks to the task page */
+let addButton = document.getElementById("addTaskbtn");
+
+if (addButton) {
+    addButton.addEventListener("click", function () {
+        let task = document.getElementById("taskInput").value;
+        if(task == "") {
+            alert("Please enter a task First");
+            return;
+        };
+        
+        
+       let taskArray = JSON.parse(localStorage.getItem("tasks")) || [];
+       taskArray.push(task);
+       localStorage.setItem("tasks", JSON.stringify(taskArray));
+       taskInput.value = "";
+    });
+}
+
+/* Showing taks in html 
+
+function showTasks() {
+    let taskList = document.getElementById("taskList");
+    if(!taskList){
+        return;
+    }
+    taskList.innerHTML = "";
+    let taskArray = JSON.parse(localStorage.getItem("tasks")) || [];
+    for(let i=0; i<taskArray.length; i++){
+        taskList.innerHTML += ""
+        <tr>
+            <td>${taskArray[i]}</td>
+            <td>
+                <button onclick="deleteTask(${i})">Delete</button>
+            </td>
+        </tr> ";
+    }
+}
+
+    }
+}
+

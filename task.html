@@ -13,46 +13,32 @@
        <nav>
         <a href="index.html">Home</a>
         <a href="register.html">Register</a>
-        <a href="task.html">Tasks</a>
-        <a href="signup.html">Signup</a>
-        <a href="login.html">Login </a>
+        <a href="task.html" id="task">Tasks</a>
+        <a href="signup.html" id="signupLink">Signup</a>
+        <a href="login.html" id="loginLink">Login </a>
+        <a href="" id="logoutbtn">Logout</a>
        </nav>
 
        <section>
         <h3>Daily Tasks</h3>
+        <div class="formbox">
+            <label>Add Taks</label>
+            <input type="text" id="taskInput"><br>
+            <button type="submit" id="addTaskbtn">Add Task</button>
+
+        </div>
         <table>
-            <tr>
-                <th>Tasks</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>HTML</td>
-                <td>Completed</td>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Action</th>
                 </tr>
-            <tr>
-                <td>CSS</td>
-                <td>Pending</td>
-                </tr>
-            <tr>
-                <td>JS</td>
-                <td>Pending</td> 
-                </tr>
-            <tr>
-                <td>Python</td>
-                <td>Pending</td>
-                </tr>
-            <tr>
-                <td>SQL</td>
-                <td>Enroll</td>
-                </tr>
-            <tr>
-                <td>JAVA DSA</td>
-                <td>Enroll</td>
-                </tr>
-            <tr>
-                <td>Full Stack</td>
-                <td>Enroll</td>
-            </tr>
+            </thead>
+            <tbody id="taskList">
+
+            </tbody>
+
+            </tbody>
         </table>       
     </section>
     <script src="script.js"> </script>
