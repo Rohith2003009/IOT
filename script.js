@@ -128,46 +128,55 @@ if (loginStatus == "true") {
     logoutLink.style.display = "none";
    }
 }
-/*
-/* Dynamically adding tasks to the task page */
+
+
+// Dynamycally adding Tasks in the task.html 
 let addButton = document.getElementById("addTaskbtn");
 
-if (addButton) {
-    addButton.addEventListener("click", function () {
+if(addButton) {
+    showTasks();
+    addButton.addEventListener("click", function(){
         let task = document.getElementById("taskInput").value;
-        if(task == "") {
-            alert("Please enter a task First");
+        if (task == ""){
+            alert("Enter the task first!..");
             return;
         };
-        
-        
-       let taskArray = JSON.parse(localStorage.getItem("tasks")) || [];
-       taskArray.push(task);
-       localStorage.setItem("tasks", JSON.stringify(taskArray));
-       taskInput.value = "";
+        // 
+        let taskArray = JSON.parse(localStorage.getItem("task")) || [];
+        taskArray.push(task)
+        localStorage.setItem("task",JSON.stringify(taskArray));
+        taskInput.value="";
+        showTasks();
     });
 }
-
-/* Showing taks in html 
-
-function showTasks() {
+  /* showing task in html page */
+  function showTasks(){
     let taskList = document.getElementById("taskList");
     if(!taskList){
-        return;
+        return ;
     }
+
     taskList.innerHTML = "";
-    let taskArray = JSON.parse(localStorage.getItem("tasks")) || [];
+    let taskArray = JSON.parse(localStorage.getItem("task")) || [];
+
     for(let i=0; i<taskArray.length; i++){
-        taskList.innerHTML += ""
+        taskList.innerHTML += `
         <tr>
             <td>${taskArray[i]}</td>
             <td>
-                <button onclick="deleteTask(${i})">Delete</button>
+                <button onClick="deleteTask(${i})">Delete</Button>
             </td>
-        </tr> ";
+        </tr>
+        `;
     }
 }
+function deleteTask(index){
 
-    }
+    let taskArray = JSON.parse(localStorage.getItem("task")) || [];
+
+    taskArray.splice(index, 1);
+
+    localStorage.setItem("task", JSON.stringify(taskArray));
+
+    showTasks();
 }
-
